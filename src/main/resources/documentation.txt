@@ -1,0 +1,14 @@
+Main Class: com.employeemanagement.EmployeeManagementApplication
+
+1.Running from Eclipse : 
+
+> Right-click on Main class and Select "Run As Java Application"
+
+2.Running from IntelliJ :
+
+> Right-click on Main class and Select "Run EmployeeManagementApplication"
+
+3.Running From command line :
+
+Go to /employee-management & enter below command
+>mvn exec:java  -Dexec.mainClass=com.employeemanagement.EmployeeManagementApplication
