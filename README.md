@@ -8,23 +8,23 @@
 - MAVEN
 - JUnit
 
-## H2 Database
-- URL : http://localhost:8080/h2-ui
-
 ## Main Class: com.employeemanagement.EmployeeManagementApplication
 
-### Running from Eclipse : 
-
-> Right-click on Main class and Select "Run As Java Application"
+### Running From command line :
+Go to /employee-management & enter below command
+> mvn exec:java  -Dexec.mainClass=com.employeemanagement.EmployeeManagementApplication
 
 ### Running from IntelliJ :
-
 > Right-click on Main class and Select "Run EmployeeManagementApplication"
 
-### Running From command line :
+### Running from Eclipse : 
+> Right-click on Main class and Select "Run As Java Application"
 
-Go to /employee-management & enter below command
->mvn exec:java  -Dexec.mainClass=com.employeemanagement.EmployeeManagementApplication
+### Running Test Cases
+> mvn test
+
+## H2 Database
+- URL : http://localhost:8080/h2-ui
 
 ## FUNCTIONALITY ACHIEVED
 
