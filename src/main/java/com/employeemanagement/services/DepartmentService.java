@@ -17,38 +17,38 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-
+/**
+ * The type Department service.
+ */
 @Service
 public class DepartmentService {
     private static Logger logger = LoggerFactory.getLogger(DepartmentService.class);
 
     @Autowired
-    DepartmentRepository departmentRepository;
+    private DepartmentRepository departmentRepository;
 
     /**
      * Save department string.
      *
      * @param departmentPojo the department data to be saved
-     * @return the string
-     */
+     * @return the response in String
+    */
     public String saveDepartment(DepartmentPojo departmentPojo){
         try{
             String validationMessage = validateDepartment(departmentPojo);
             if(validationMessage!=null && !validationMessage.isEmpty())
                 return "Failed to save department :: "+validationMessage;
-
             Department department = new Department();
             department.setName(departmentPojo.getName());
-
             department.setRegion(RegionEnum.getValueFromString(departmentPojo.getRegion()));
-            System.out.println("Region :: "+department.getRegion());
             departmentRepository.save(department);
+            logger.debug("Department Saved Successfully "+departmentPojo.getName());
             return "Department Saved Successfully";
         }
         catch (Exception ex){
             ex.printStackTrace();
             logger.error("Failed saveDepartment : "+ex.getMessage());
-            return "Failed To Save Department "+ex.getMessage();
+            return "Failed to save department :: "+ex.getMessage();
         }
     }
 
@@ -56,8 +56,8 @@ public class DepartmentService {
      * Validate department string.
      *
      * @param departmentPojo the department pojo
-     * @return the string
-     */
+     * @return the response in String
+    */
     public String validateDepartment(DepartmentPojo departmentPojo){
         //Create ValidatorFactory which returns validator
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -89,16 +89,27 @@ public class DepartmentService {
      *
      * @param name       the name
      * @param regionEnum the region enum
-     * @return the optional
+     * @return the optional object of department
      */
     public Optional<Department> findByNameAndRegion(String name, RegionEnum regionEnum){
         return departmentRepository.findByNameAndRegion(name, regionEnum);
     }
 
+    /**
+     * Find by department ids list.
+     *
+     * @param ids the ids
+     * @return the list of department
+     */
     public List<Department> findByDepartmentIds(List<Integer> ids){
         return departmentRepository.findByIdIn(ids);
     }
 
+    /**
+     * Find all list.
+     *
+     * @return the list of Department
+     */
     public List<Department> findAll(){
         List<Department> departmentList = new ArrayList<>();
         Iterable<Department> departmentIterable = departmentRepository.findAll();

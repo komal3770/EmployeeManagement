@@ -50,7 +50,7 @@ public class OperationalService {
      *
      * @param headers  File headers array.
      * @param fileName File name with path.
-     * @return the list
+     * @return the list csv data in map
      */
     public List<Map<String, String>> loadData(String[] headers, String fileName) {
         logger.info("Data Loading Started");
@@ -102,6 +102,7 @@ public class OperationalService {
             writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 

@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
+/**
+ * The type Department.
+ */
 @Entity
 public class Department {
     @Id

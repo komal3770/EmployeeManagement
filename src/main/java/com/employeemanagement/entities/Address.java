@@ -2,6 +2,9 @@ package com.employeemanagement.entities;
 
 import javax.persistence.Embeddable;
 
+/**
+ * Embeddable Address entity class
+ */
 @Embeddable
 public class Address {
     private String city;

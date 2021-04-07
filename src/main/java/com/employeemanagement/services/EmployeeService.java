@@ -20,7 +20,6 @@ import javax.validation.ValidatorFactory;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * The type Employee com.employeemanagement.service.
@@ -30,10 +29,10 @@ public class EmployeeService {
     private static Logger logger = LoggerFactory.getLogger(EmployeeService.class);
 
     @Autowired
-    EmployeeRepository employeeRepository;
+    private EmployeeRepository employeeRepository;
 
     @Autowired
-    DepartmentService departmentService;
+    private DepartmentService departmentService;
 
     /**
      * Validates & Save employee object
@@ -68,11 +67,12 @@ public class EmployeeService {
             employee.setAddress(address);
 
             employeeRepository.save(employee);
+            logger.debug("Employee Saved Successfully "+employeePojo.getUsername());
             return "Employee Saved Successfully";
         }
         catch (Exception ex){
             ex.printStackTrace();
-            logger.info("Failed saveEmployee : "+ex.getMessage());
+            logger.error("Failed saveEmployee : "+ex.getMessage());
             return "Failed to save employee";
         }
     }
@@ -110,7 +110,7 @@ public class EmployeeService {
     /**
      * Find all list.
      *
-     * @return the list
+     * @return the list of employees
      */
     public List<Employee> findAll(){
         return (List<Employee>) employeeRepository.findAll();
