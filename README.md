@@ -29,19 +29,28 @@ Go to /employee-management & enter below command
 ## FUNCTIONALITY ACHIEVED
 
 ### Populate the database with dummy data for 20 employees divided between 2 departments
-- Employee & Department data from csv file
+- Employee & Department data from csv file(from resources folder) & Record status is updated in EmployeeData_Response.csv & DepartmentData_Response.csv
+- Class : com.employeemanagement.services.OperationalService
+- Methods : loadDepartmentData & loadEmployeeData
 
 ### Create new Employee and associate with department
-- MethodName : com.employeemanagement.services.EmployeeService.saveEmployee
+- Class : com.employeemanagement.services.EmployeeService
+- MethodName : saveEmployee
 
 ### Create new Department
-- MethodName : com.employeemanagement.services.DepartmentService.saveDepartment
+- Class : com.employeemanagement.services.DepartmentService
+- MethodName : saveDepartment
 
 ### Find all employees by department & above given age
-- MethodName : com.employeemanagement.services.OperationalService.findAllByDepartmentAndAge
+- Class : com.employeemanagement.services.OperationalService
+- MethodName : findAllByDepartmentAndAge
 
 ### Find all employees below a given age having CTC greater than 2Lakhs
-- MethodName : com.employeemanagement.services.OperationalService.findAllByDepartmentAndAgeAndCtcAndStatus
+- Class : com.employeemanagement.services.OperationalService
+- MethodName : findAllByDepartmentAndAgeAndCtcAndStatus
 
 ### Find all employees across all departments having status as ACTIVE and living in Mumbai city with a CTC range of 2 to 5
-- MethodName : com.employeemanagement.services.OperationalService.findAllByDepartmentsAndCityAndCtc
+- Class : com.employeemanagement.services.OperationalService
+- MethodName : findAllByDepartmentsAndCityAndCtc
+
+Test cases for above functionalities are present
